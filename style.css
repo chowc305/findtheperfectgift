@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Beau+Rivage&display=swap');
+
+
+body{
+font-family: "Albert Sans", sans-serif;
+font-optical-sizing: auto;
+pointer:cursor;
+
+}
+.nav-bar{
+    background-color: darkgray;
+    height:4em;
+}
+.hero{
+    /* background-color: cornsilk; */
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3em;
+    position:relative;
+    height:35em;
+}
+
+#header{
+    font-weight: 500;
+    font-size: 60px;
+    line-height: 110px;
+}
+
+#header::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 150%;
+    
+    /* The "Outer Ring 0 Opacity" Gradient */
+    background: radial-gradient(circle, rgba(255, 132, 237, 0.8) 0%, transparent 70%);
+    
+    z-index: -1; /* Puts the color BEHIND the text */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#header:hover::before {
+    opacity: 1;
+}
+
+
+#header_script{
+    font-family: "Beau Rivage", cursive;
+  font-weight: 400;
+  font-size: 136px;
+   margin-left: 100px;
+}
+
+/* 1. Universal sizing for all "gift" items */
+.hero > img:not(#box) { 
+    position: absolute;
+    width: 10em;       /* Set your desired uniform width */
+    height: 10em;      /* Set your desired uniform height */
+    object-fit: contain; /* Keeps images from stretching */
+    z-index: 5; 
+    opacity: 0; 
+    animation: burstOut 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 2. The Box (stays unique) */
+#box {
+    position: absolute;
+    width: 20em;
+    height: auto;
+    top: 70%;
+    left: 40%;
+    z-index: 10;
+}
+
+/* 3. The Animation */
+@keyframes burstOut {
+    0% {
+        top: 75%; 
+        left: 45%;
+        transform: scale(0.1) rotate(0deg);
+        opacity: 0;
+    }
+    20% { opacity: 1; }
+    100% { opacity: 1; }
+}
+
+/* 4. Individual Coordinates & Rotations */
+/* I removed the 'width' lines here since they are now handled above */
+#watch    { top: 8%;  left: 6%;  transform: rotate(20deg);  animation-delay: 0.1s; }
+#bouquet  { top: 60%; left: 80%; transform: rotate(-10deg); animation-delay: 0.2s; }
+#lambo    { top: 2%;  left: 60%; transform: rotate(40deg);  animation-delay: 0.3s; }
+#perfume  { top: 60%; left: 5%;  transform: rotate(10deg);  animation-delay: 0.4s; }
+#bose     { top: 30%; left: 14%; transform: rotate(-3deg);  animation-delay: 0.5s; }
+#camera   { top: 10%; left: 80%; transform: rotate(10deg);  animation-delay: 0.6s; }
+#tickets  { top: 2%;  left: 30%; transform: rotate(40deg);  animation-delay: 0.7s; }
+
+.sign-up{
+background-color: rgba(255, 132, 237, 0.8);
+display:flex;
+flex-direction: column;
+gap:1em;
+width: 40em;
+align-content:center;
+padding: 2em;
+border-radius: 20px;
+}
